@@ -14,7 +14,7 @@ Landing page premium para el evento nocturno exclusivo **Umbra II**. Sistema de 
 
 ## 📁 Estructura del Proyecto
 
-```
+\`\`\`
 umbra-ii/
 ├── app/
 │   ├── layout.tsx          # Layout principal con metadata
@@ -30,7 +30,7 @@ umbra-ii/
 ├── config/
 │   └── umbra.config.ts     # Configuración centralizada del evento
 └── README.md
-```
+\`\`\`
 
 ## 🎨 Componentes Principales
 
@@ -80,7 +80,7 @@ Footer con información legal, redes sociales y política de devolución.
 
 Toda la configuración está centralizada en `config/umbra.config.ts`:
 
-```typescript
+\`\`\`typescript
 export const CONFIGURACION_UMBRA: ConfiguracionEvento = {
   nombre: "UMBRA",
   edicion: 2,
@@ -92,7 +92,7 @@ export const CONFIGURACION_UMBRA: ConfiguracionEvento = {
   entradas: [...],
   instagramUrl: "...",
 }
-```
+\`\`\`
 
 ### Para crear Umbra III:
 
@@ -106,7 +106,7 @@ export const CONFIGURACION_UMBRA: ConfiguracionEvento = {
 ### 1. Integrar Backend
 Reemplazar `montoActual` estático con llamada a API:
 
-```typescript
+\`\`\`typescript
 // En page.tsx
 const [montoActual, setMontoActual] = useState(0);
 
@@ -115,18 +115,18 @@ useEffect(() => {
     .then(res => res.json())
     .then(data => setMontoActual(data.monto));
 }, []);
-```
+\`\`\`
 
 ### 2. Actualización en Tiempo Real
 Implementar WebSocket o polling para actualizar el progreso:
 
-```typescript
+\`\`\`typescript
 import useSWR from 'swr';
 
 const { data } = useSWR('/api/progreso', fetcher, {
   refreshInterval: 5000 // Actualiza cada 5 segundos
 });
-```
+\`\`\`
 
 ### 3. Gestión de Stock
 Sincronizar stock con base de datos y plataforma de pagos.
